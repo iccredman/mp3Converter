@@ -10,7 +10,7 @@ def convert_to_mp3(base_dir):
     dir_arch = os.path.join(base_dir, 'Archive/')  # Archive directory
 
     # File types to convert
-    file_types = ['.m4a', '.amr', '.wav']
+    file_types = ['.m4a', '.amr', '.wav', '.aac']
 
     # Ensure directories exist, if not, create them
     for dir_path in [dir_src, dir_dst, dir_arch]:
@@ -19,7 +19,7 @@ def convert_to_mp3(base_dir):
     # Iterate over directory of files
     for filename in os.listdir(dir_src):
         name, extension = os.path.splitext(filename)
-        # Check if file is an m4a, amr or wav
+        # Check if file is any of the file types
         if extension in file_types:
             # Open file
             sound = AudioSegment.from_file(os.path.join(dir_src, filename))
